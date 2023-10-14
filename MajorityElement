@@ -1,0 +1,26 @@
+Question: Given an array of size N, find the majority element. The majority element is the element that appears more than floor(N/2) times.
+You may assume that the array is non-empty and the majority element always exist in the array.
+
+Question Link: https://www.interviewbit.com/problems/majority-element/?study_plan=study-plan-1-week&/
+
+Intuition: Use a hashmap to store the element and its frequency; return the highest value of the key stored in the Hashmap.
+
+Special mention: Use Collections.max(hashmap.entrySet(), Map.Entry.comparingByValue()).getKey() --> to return the highest value of the key and as 1 liner.
+
+
+Java Solution:
+
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int majorityElement(final int[] A) {
+        
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
+        
+        for(int num: A){
+            hashmap.put(num, hashmap.getOrDefault(num,0)+1);
+        }
+        
+        return Collections.max(hashmap.entrySet(), Map.Entry.comparingByValue()).getKey();
+        
+       }
+}
