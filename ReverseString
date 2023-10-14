@@ -1,0 +1,25 @@
+Reverse the String
+
+Question: You are given a string A of size N.
+Return the string A after reversing the string word by word.
+
+Question Link: https://www.interviewbit.com/problems/reverse-the-string/?study_plan=study-plan-1-week&/
+
+Intuition: Splitting string based on spaces; using StringBuilder to recreate the string using append and trimming the final string.
+
+Special mention: Edge cases considering the whitspaces in the begining and ending of string
+
+Java Solution:
+
+public class Solution {
+    public String solve(String A) {
+    
+        String[] splitedString = A.split("\\s+");
+        StringBuilder output = new StringBuilder();
+        for (int i = splitedString.length - 1; i >=0 ; i--) {
+                output.append(splitedString[i]).append(" ");
+        }
+        return output.toString().trim();
+
+    }
+}
